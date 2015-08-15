@@ -19,7 +19,7 @@ iTunes feed package for the LaSalleCast e-broadcasting platform.
 
 In config/app.php:
 ```
-Lasallecast\Lasallecastapi\LasallecastiTunesServiceProvider::class,
+Lasallecast\LasallecastiTunesServiceProvider::class,
 ```
 
 
