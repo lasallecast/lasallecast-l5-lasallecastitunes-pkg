@@ -65,7 +65,7 @@ class LasallecastitunesServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function setupConfiguration()
+    public function setupConfiguration()
     {
         $configuration = realpath(__DIR__.'/../config/lasallecastitunes.php');
 
@@ -80,9 +80,9 @@ class LasallecastitunesServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    private function register()
+    public function register()
     {
-        $this->app['feed'] = $this->app->share(function($app)
+        $this->app['lasallecastitunes'] = $this->app->share(function($app)
         {
             return new Lasallecastitunes();
         });
