@@ -3,7 +3,7 @@
 
 I welcome contributions for this iTunes package. 
 
-Please remember that *this package is designed to integrate with my LaSalle Software*. 
+Please remember that *this package is designed to integrate with my LaSalle Software. 
 
 To contribute, please open an issue with your idea/fix; or, submit a Pull Request.
  

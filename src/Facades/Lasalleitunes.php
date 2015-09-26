@@ -1,6 +1,6 @@
 <?php
 
-namespace Lasallecast\Lasallecastitunes;
+namespace Lasallecast\lasallecastitunes\Facades;
 
 /**
  *
@@ -30,42 +30,12 @@ namespace Lasallecast\Lasallecastitunes;
  *
  */
 
-class Version
+use Illuminate\Support\Facades\Facade;
+
+class Lasallecastitunes extends Facade
 {
-	/**
-	 * This package's version number.
-	 *
-	 * @var string
-	 */
-	const VERSION = '1.0';
-
-
-	/**
-	 * This package's name.
-	 *
-	 * @var string
-	 */
-	const PACKAGE = 'iTunes feed package for the LaSalleCast e-broadcasting platform';
-
-
-	/**
-	 * Get the version number of this package.
-	 *
-	 * @return string
-	 */
-	public function version()
-	{
-		return static::VERSION;
-	}
-
-	/**
-	 * Get the name of this package.
-	 *
-	 * @return string
-	 */
-	public function packageName()
-	{
-		return static::PACKAGE;
-	}
-
+    protected static function getFacadeAccessor()
+    {
+        return 'lasallecastitunes';
+    }
 }

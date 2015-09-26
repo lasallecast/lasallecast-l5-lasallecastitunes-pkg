@@ -4,7 +4,7 @@ namespace Lasallecast\Lasallecastapi;
 
 /**
  *
- * iTunes feed package for the LaSalleCast e-broadcasting platform, based on the Laravel 5 Framework
+ * iTunes feed package for the LaSalleCast e-broadcasting platform
  * Copyright (C) 2015  The South LaSalle Trading Corporation
  *
  * This program is free software: you can redistribute it and/or modify
@@ -29,7 +29,8 @@ namespace Lasallecast\Lasallecastapi;
  * @email      info@southlasalle.com
  *
  */
-use Illuminate\Routing\Router;
+
+// Laravel classes
 use Illuminate\Support\ServiceProvider;
 
 
@@ -38,7 +39,7 @@ use Illuminate\Support\ServiceProvider;
  *
  * @author Bob Bloom <info@southlasalle.com>
  */
-class LasallecastiTunesServiceProvider extends ServiceProvider
+class LasallecastitunesServiceProvider extends ServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
@@ -55,14 +56,7 @@ class LasallecastiTunesServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //$this->setupConfiguration();
-
-        //$this->setupRoutes($this->app->router);
-
-        //$this->setupTranslations();
-
-        //$this->setupMigrations();
-        //$this->setupSeeds();
+        $this->loadViewsFrom(__DIR__ . '/../../views', 'lasallecastitunes');
     }
 
 
@@ -82,71 +76,15 @@ class LasallecastiTunesServiceProvider extends ServiceProvider
 
 
     /**
-     * Setup the Migrations.
-     *
-     * @return void
-     */
-    protected function setupMigrations()
-    {
-        $migrations = realpath(__DIR__.'/../database/migrations');
-
-        $this->publishes([
-            $migrations    => $this->app->databasePath() . '/migrations',
-        ]);
-    }
-
-
-    /**
-     * Setup the Seeds.
-     *
-     * @return void
-     */
-    protected function setupSeeds()
-    {
-        $seeds = realpath(__DIR__.'/../database/seeds');
-
-        $this->publishes([
-            $seeds    => $this->app->databasePath() . '/seeds',
-        ]);
-    }
-
-
-    /**
-     * Register the service provider.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        $this->registerLasallecastitunes();
-    }
-
-
-    /**
      * Register the application bindings.
      *
      * @return void
      */
-    private function registerLasallecastitunes()
+    private function register()
     {
-        $this->app->bind('lasallecastitunes', function($app) {
-            return new Lasallecastitunes($app);
-        });
-
-    }
-
-
-    /**
-     * Define the routes for the application.
-     *
-     * @param  \Illuminate\Routing\Router  $router
-     * @return void
-     */
-    public function setupRoutes(Router $router)
-    {
-        $router->group(['namespace' => 'Lasallecast\Lasallecastitunes\Http\Controllers'], function($router)
+        $this->app['feed'] = $this->app->share(function($app)
         {
-            require __DIR__.'/Http/routes.php';
+            return new Lasallecastitunes();
         });
 
     }
@@ -159,6 +97,6 @@ class LasallecastiTunesServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array('lasallecastlistitunes');
+        return ['lasallecastlistitunes'];
     }
 }

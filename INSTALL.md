@@ -19,17 +19,21 @@ iTunes feed package for the LaSalleCast e-broadcasting platform.
 
 In config/app.php:
 ```
-Lasallecast\LasallecastiTunesServiceProvider::class,
+Lasallecast\Lasallecastitunes\LasallecastitunesServiceProvider::class,
 ```
 
 
 ## Facade Alias
 
-* none
+In config/app.php:
+```
+'Lasallecastitunes'       => Lasallecast\Lasallecastitunes\Facades\Lasallecastitunes::class,
+```
 
 
 ## Dependencies
-* none
+
+LaSalleCast, LaSalleCRM, LaSalleCMS
 
 
 ## Publish the Package's Config
