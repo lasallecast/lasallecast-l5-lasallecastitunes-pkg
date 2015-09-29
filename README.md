@@ -16,12 +16,18 @@ iTunes does not use a regular rss file. The iTunes feed file has tags in it that
 This package depends intimately with my LaSalleCast Software, which in turn requires my LaSalle CMS and LaSalle CRM.
 
 [iTunes Guide to Making a Podcast](http://www.apple.com/itunes/podcasts/specs.html)
+[iTunes RSS Feed Generator](https://rss.itunes.apple.com/)
+[http://www.rssboard.org/rss-profile](http://www.rssboard.org/rss-profile)
 
 
 ## Security
 
 If you discover any security related issues, please email Bob Bloom at "info at southlasalle dot com" or use the GitHub issue tracker.
 
+
+## Attribution
+
+Inspired by [https://github.com/RoumenDamianoff/laravel-feed](https://github.com/RoumenDamianoff/laravel-feed).
 
 ## Links
 

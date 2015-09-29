@@ -1,6 +1,6 @@
 <?php
 
-namespace Lasallecast\Lasallecastapi;
+namespace Lasallecast\Lasallecastitunes;
 
 /**
  *
@@ -56,7 +56,9 @@ class LasallecastitunesServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__ . '/../../views', 'lasallecastitunes');
+        $this->setupConfiguration();
+
+        $this->setupViews();
     }
 
 
@@ -87,6 +89,17 @@ class LasallecastitunesServiceProvider extends ServiceProvider
             return new Lasallecastitunes();
         });
 
+    }
+
+
+    /**
+     * Define the views for the application.
+     *
+     * @return void
+     */
+    public function setupViews()
+    {
+        $this->loadViewsFrom(__DIR__.'/../views', 'lasallecastitunes');
     }
 
 

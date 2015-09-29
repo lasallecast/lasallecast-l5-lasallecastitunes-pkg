@@ -30,6 +30,16 @@ namespace Lasallecast\Lasallecastitunes;
  *
  */
 
+
+
+// http://feedvalidator.org/
+
+
+// LaSalle Software classes
+use Lasallecast\Lasallecastitunes\Categories;
+
+// Laravel Facades
+use Illuminate\Support\Facades\DB;;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\View;
@@ -37,15 +47,145 @@ use Illuminate\Support\Facades\Cache;
 
 class Lasallecastitunes
 {
+    /**
+     * @var Lasallecast\Lasallecastitunes\Categories
+     */
+    protected $categories;
+
+
+    /**
+     *
+     */
+    public function __construct(Categories $categories)
+    {
+        $this->categories = $categories;
+    }
 
     /**
      * Returns new instance of Lasallecastitunes class
      *
-     * @return Feed
+     * @return Lasallecastitunes
      */
     public function make()
     {
         return new Lasallecastitunes();
     }
+
+
+    /**
+     * Creates the itunes feed
+     *
+     * @param  collection   $show      The show
+     * @param  collection   $episodes  The episodes to include in the feed
+     * @return view
+     */
+    public function render($show, $episodes)
+    {
+        // for show, get the TITLE of the explicit lookup table's ID
+        $show->itunes_explicit_title = $this->getLookupitunesexplicitTitleById($show->itunes_explicit_id);
+
+        // for episodes: instead of the ID, display the TITLE of the explicit lookup table
+        $this->assignLookupitunesexplicitTitle($episodes);
+
+        // for show, the date the the itunes feed was created (ie, built)
+        // format: Mon, 04 May 2015 19:03:17 +0000
+        $lastBuildDate = $this->formatDate(date('D, d M Y H:i:s O'));
+
+        // for show, the feed generator
+        $version = \Lasallecast\Lasallecastitunes\Version::VERSION;
+        $feedGenerator = "LaSalleCast iTunes feed generation pacakge ".$version;
+
+
+        // for episodes, the formatted publish_date
+        // format: Mon, 04 May 2015 19:03:17 +0000
+        $this->assignFormattedPublishDate($episodes);
+
+
+        // Note that itunes category tags are created in a separate class, via a blade injectable service
+
+
+        // If we just return the view as is, the browser may just render the rss tags as pure html. Meaning,
+        // the browser will intrepret the rss tags, as if they were regular html tags. What we want is to
+        // know that the browser will treat the rss tags as, well... as rss tags. So, first we get the contents
+        // of the view. Then, we return a response with the specific rss header
+
+        // Thanks to http://blog.kongnir.com/2014/06/27/getting-laravel-to-return-a-view-as-rss-or-xml/
+
+        $content =  view('lasallecastitunes::itunes', [
+            'show'                       => $show,
+            'episodes'                   => $episodes,
+            'lastBuildDate'              => $lastBuildDate,
+            'feedGenerator'              => $feedGenerator,
+        ]);
+
+        return Response::make($content, '200')->header('Content-Type', 'text/xml');
+    }
+
+
+
+
+
+    /**
+     * Assign the itunes explicit name to each episode
+     *
+     * @param  collection   $episodes  The episodes to include in the feed
+     * @return collection
+     */
+    public function assignLookupitunesexplicitTitle($episodes)
+    {
+        foreach ($episodes as $episode)
+        {
+            $episode->itunes_explicit_title = $this->getLookupitunesexplicitTitleById($episode->itunes_explicit_id);
+        }
+
+        return $episodes;
+    }
+
+    /**
+     * What is the title of a lookup_itunes_explicit id
+     *
+     * @param  int  $lookup_itunes_explicit_id      The lookup table's id
+     * @return string
+     */
+    public function getLookupitunesexplicitTitleById($lookup_itunes_explicit_id)
+    {
+        $explicit = DB::table('lookup_itunes_explicit')
+            ->where('id', '=', $lookup_itunes_explicit_id)
+            ->first()
+        ;
+
+        return $explicit->title;
+    }
+
+
+    /**
+     * Assign the new publish_date_formatted property to each episode
+     *
+     * @param  collection   $episodes  The episodes to include in the feed
+     * @return collection
+     */
+    public function assignFormattedPublishDate($episodes)
+    {
+        foreach ($episodes as $episode)
+        {
+            $episode->publish_date_formatted = $this->formatDate($episode->publish_date);
+        }
+
+        return $episodes;
+    }
+
+
+    /**
+     * Give me a date, and I'll give you the date format that iTunes wants in its feed
+     *
+     * @param  date
+     * @return string
+     */
+    public function formatDate($date)
+    {
+        return $date = date('D, d M Y H:i:s O', strtotime($date));
+    }
+
+
 
 }
