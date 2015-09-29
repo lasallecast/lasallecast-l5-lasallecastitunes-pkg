@@ -1,9 +1,9 @@
 # LASALLECAST ITUNES FEED GENERATION PACKAGE
 
-[![Total Downloads](https://img.shields.io/github/downloads/bbloom/lasallecast-l5-lasallecastitunes-pkg/latest/total.svg?style=flat-square)](https://github.com/bbloom/lasallecast-l5-lasallecastitunes-pkg)
-[![Latest Stable Version](https://img.shields.io/github/tag/bbloom/lasallecast-l5-lasallecastitunes-pkg.svg?style=flat-square)](https://github.com/bbloom/lasallecast-l5-lasallecastitunes-pkg)
-[![Latest Unstable Version](https://img.shields.io/github/release/bbloom/lasallecast-l5-lasallecastitunes-pkg.svg?style=flat-square)](https://github.com/bbloom/lasallecast-l5-lasallecastitunes-pkg)
-[![GitHub Issues](https://img.shields.io/github/issues/bbloom/lasallecast-l5-lasallecastitunes-pkg.svg?style=flat-square)](https://github.com/bbloom/lasallecast-l5-lasallecastitunes-pkg/issues)
+[![Total Downloads](https://img.shields.io/github/downloads/lasallecast/lasallecast-l5-lasallecastitunes-pkg/latest/total.svg?style=flat-square)](https://github.com/lasallecast/lasallecast-l5-lasallecastitunes-pkg)
+[![Latest Stable Version](https://img.shields.io/github/tag/lasallecast/lasallecast-l5-lasallecastitunes-pkg.svg?style=flat-square)](https://github.com/lasallecast/lasallecast-l5-lasallecastitunes-pkg)
+[![Latest Unstable Version](https://img.shields.io/github/release/lasallecast/lasallecast-l5-lasallecastitunes-pkg.svg?style=flat-square)](https://github.com/lasallecast/lasallecast-l5-lasallecastitunes-pkg)
+[![GitHub Issues](https://img.shields.io/github/issues/lasallecast/lasallecast-l5-lasallecastitunes-pkg.svg?style=flat-square)](https://github.com/lasallecast/lasallecast-l5-lasallecastitunes-pkg/issues)
 [![Software License](https://img.shields.io/badge/license-GPLv3-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Laravel](https://img.shields.io/badge/Laravel-v5-brightgreen.svg?style=flat-square)](http://laravel.com)
 
