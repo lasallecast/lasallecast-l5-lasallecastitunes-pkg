@@ -3,7 +3,7 @@
 /**
  *
  * iTunes feed package for the LaSalleCast e-broadcasting platform
- * Copyright (C) 2015  The South LaSalle Trading Corporation
+ * Copyright (C) 2015 - 2016  The South LaSalle Trading Corporation
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@
  *
  * @package    iTunes feed package for the LaSalleCast e-broadcasting platform
  * @link       http://LaSalleCast.com
- * @copyright  (c) 2015, The South LaSalle Trading Corporation
+ * @copyright  (c) 2015 - 2016, The South LaSalle Trading Corporation
  * @license    http://www.gnu.org/licenses/gpl-3.0.html
  * @author     The South LaSalle Trading Corporation
  * @email      info@southlasalle.com
