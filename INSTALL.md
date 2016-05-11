@@ -27,7 +27,7 @@ Lasallecast\Lasallecastitunes\LasallecastitunesServiceProvider::class,
 
 In config/app.php:
 ```
-'Lasallecastitunes'       => Lasallecast\Lasallecastitunes\Facades\Lasallecastitunes::class,
+'Lasallecastitunes' => Lasallecast\Lasallecastitunes\Facades\Lasallecastitunes::class,
 ```
 
 
