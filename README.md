@@ -9,6 +9,13 @@
 
 iTunes feed generation package for the LaSalleCast e-broadcasting platform
 
+
+
+[MUST READ CAVEAT ABOUT THIS PACKAGE at https://lasallesoftware.ca/caveat_about_lasalle_software_version_one.php](https://lasallesoftware.ca/caveat_about_lasalle_software_version_one.php)
+
+
+
+
 This package generates the feed file for iTunes. 
 
 iTunes does not use a regular rss file. The iTunes feed file has tags in it that are specific only to iTunes. This package generates the iTunes specific feed file.
