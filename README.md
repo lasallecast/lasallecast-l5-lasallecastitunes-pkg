@@ -11,8 +11,7 @@ iTunes feed generation package for the LaSalleCast e-broadcasting platform
 
 
 
-[MUST READ CAVEAT ABOUT THIS PACKAGE at https://lasallesoftware.ca/caveat_about_lasalle_software_version_one.php](https://lasallesoftware.ca/caveat_about_lasalle_software_version_one.php)
-
+*** DO NOT USE THIS REPOSITORY!! NOT MAINTAINED!! GO TO [LaSalleSoftware.ca](https://lasallesoftware.ca) ***
 
 
 
